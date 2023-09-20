@@ -56,7 +56,7 @@ songs = ["Interlude",
     ]
 
 """
-this procedure uses random.choice to select a random song from the list.
+this function uses random.choice to select a random song from the list.
 @param: songs. a list of strings wich contains all the titles of the songs.
 """
 def selectPassword(songs):
@@ -64,7 +64,7 @@ def selectPassword(songs):
     return password
 
 """
-this procedure remove the spaces from the string.
+this function removes the spaces, dots and apostrophes from the string.
 @param: password. a string selected from selectPassword()
 """
 def removeSpacesAndStuff(password):
@@ -95,6 +95,10 @@ def replaceVowelsWithNumbers(password):
 def addRandomStuff(x):
     print(f"random!")
 
+"""
+this is the main procedure.
+@param: songs. a list of strings.
+"""
 
 def generatePassword(songs):
     password = selectPassword(songs)
