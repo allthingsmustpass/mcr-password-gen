@@ -68,10 +68,7 @@ this procedure remove the spaces from the string.
 @param: password. a string selected from selectPassword()
 """
 def removeSpacesAndStuff(password):
-    password.replace(" ","")
-    password.replace("'","")
-    password.replace(".","")
-    return password.replace(" ","")
+    return password.translate(str.maketrans({" ": None, "'": None, "." : None}))
 
 """
 now we replace all the vowels with some number.
