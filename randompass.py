@@ -1,4 +1,5 @@
 import random
+import string
 
 songs = ["Interlude",
     "Thank You For the Venom", "Hang 'Em High",
@@ -92,8 +93,18 @@ def replaceVowelsWithNumbers(password):
              x = x.replace(i, vowels[i])
     return x
 
-def addRandomStuff(x):
-    print(f"random!")
+"""
+this function add a set of random digits and charactersa at the end of our password.
+@param: password. a string.
+"""
+def addRandomStuff(password):
+    randomchars = ''.join(random.choice (   #creates the random chars on an empty variable.
+        string.ascii_letters +              #this method returns a set of random letters from a-ZA-Z
+        string.digits +                     #this one returns some random numbers.
+        string.punctuation                  #random punctuation chars, like !"#$%&'() and so on. if you wanted to allow some chars in specific, use an string like allowedchars = string(...) + "!#$%&/()=".
+        ) for i in range(7))                #executes the loop N times, in this case its 7.
+    password += randomchars                 #uses += wich is the addition assignment.
+    return password
 
 """
 this is the main procedure.
@@ -104,6 +115,7 @@ def generatePassword(songs):
     password = selectPassword(songs)
     password = removeSpacesAndStuff(password)
     password = replaceVowelsWithNumbers(password)
+    password = addRandomStuff(password)
     print(password)
 
 def main():
